@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            background-color: darkcyan;
+            height: 50px;
+        }
+
+        .container {
+            background-color: cyan;
+            overflow: hidden;
+            /*4. 因为文字会被left元素挡住，所以使用padding将内容显示出来，同时需要知道left的宽度*/
+            padding-left: 200px;
+            padding-right: 300px;
+        }
+
+        .middle,
+        .left,
+        .right {
+            float: left;
+            /*  1. 三者都设置为float left，且三者都有高度*/
+            height: 500px;
+            /*5. 此时left也会跟着回来，所以使用相对定位*/
+            position: relative;
+
+        }
+
+        .middle {
+            background-color: palevioletred;
+            width: 100%;
+            /* 2. middle 宽度使用100% */
+
+        }
+
+        .left {
+            width: 200px;
+            background-color: tomato;
+            margin-left: -100%;
+            /*3. 使用margin-left: -100% 将left元素拉回来*/
+            /*5.1 对left进行设置*/
+            left: -200px;
+        }
+
+        .right {
+            background-color: purple;
+            width: 300px;
+            /*5.2 将right盒子拉回*/
+            margin-left: -300px;
+            right: -300px;
+        }
+
+        footer {
+            background-color: yellowgreen;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <header><h4>header</h4></header>
+    <div class="container">
+        <div class="middle"><h4>middle</h4></div>
+        <div class="left"><h4>left</h4></div>
+        <div class="right"><h4>right</h4></div>
+    </div>
+    <footer><h4>footer</h4></footer>
+</body>
+</html>
